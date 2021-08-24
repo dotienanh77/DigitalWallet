@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   View,
@@ -17,6 +17,8 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import {COLORS, FONTS, SIZES, icons, images} from '../constants';
 const SignUp = () => {
+    const [showPassword, setShowPassword] = useState(false);
+
   function renderHeader() {
     return (
       <TouchableOpacity
@@ -154,7 +156,7 @@ const SignUp = () => {
             placeholder="Enter password"
             placeholderTextColor={COLORS.white}
             selectionColor={COLORS.white}
-            secureTextEntry={true}
+            secureTextEntry={!showPassword}
           />
           <TouchableOpacity
             style={{
@@ -164,9 +166,9 @@ const SignUp = () => {
               height: 30,
               width: 30,
             }}
-            onPress={() => console.log('Toggle')}>
+            onPress={() => setShowPassword(!showPassword)}>
             <Image
-              source={icons.eye}
+              source={showPassword ? icons.disable_eye : icons.eye}
               style={{height: 20, width: 20, tintColor: COLORS.white}}
             />
           </TouchableOpacity>
