@@ -270,6 +270,7 @@ const Home = () => {
         keyExtractor={item => `${item.id}`}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
+        ListFooterComponent={<View style={{marginTop: 80}} />}
       />
     );
   }
