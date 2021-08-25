@@ -139,8 +139,25 @@ const Home = () => {
     );
   }
 
+  function renderBanner() {
+    return (
+      <View style={{height: 120, borderRadius: 20}}>
+        <Image
+          source={images.banner}
+          resizeMode="cover"
+          style={{width: '100%', height: '100%', borderRadius: 20}}
+        />
+      </View>
+    );
+  }
+
   function renderPromos() {
-    const HeaderComponent = () => <View>{renderHeader()}</View>;
+    const HeaderComponent = () => (
+      <View>
+        {renderHeader()}
+        {renderBanner()}
+      </View>
+    );
 
     const renderItem = ({item}) => (
       <TouchableOpacity
