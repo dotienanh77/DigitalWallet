@@ -121,6 +121,18 @@ const Scan = ({navigation}) => {
     );
   }
 
+  function renderScanFocus() {
+    return (
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <Image
+          source={images.focus}
+          resizeMode="stretch"
+          style={{marginTop: '-55%', width: 200, height: 300}}
+        />
+      </View>
+    );
+  }
+
   return (
     <View style={{flex: 1, backgroundColor: COLORS.transparent}}>
       <RNCamera
@@ -138,6 +150,7 @@ const Scan = ({navigation}) => {
           buttonNegative: 'Cancel',
         }}>
         {renderHeader()}
+        {renderScanFocus()}
         {renderPaymentMethod()}
       </RNCamera>
     </View>
