@@ -151,11 +151,57 @@ const Home = () => {
     );
   }
 
+  function renderFeatures() {
+    const Header = () => (
+      <View style={{marginBottom: SIZES.padding * 2}}>
+        <Text style={{...FONTS.h3}}>Features</Text>
+      </View>
+    );
+    const renderItem = ({item}) => (
+      <TouchableOpacity
+        style={{
+          marginBottom: SIZES.padding * 2,
+          width: 90,
+          alignItems: 'center',
+        }}
+        onPress={() => console.log(item.description)}>
+        <View
+          style={{
+            width: 50,
+            height: 50,
+            marginBottom: 5,
+            borderRadius: 20,
+            backgroundColor: item.backgroundColor,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Image
+            source={item.icon}
+            resizeMode="contain"
+            style={{width: 30, height: 30, tintColor: item.color}}
+          />
+        </View>
+      </TouchableOpacity>
+    );
+    return (
+      <FlatList
+        ListHeaderComponent={Header}
+        data={features}
+        numColumns={4}
+        columnWrapperStyle={{justifyContent: 'center'}}
+        keyExtractor={item => `${item.id}`}
+        renderItem={renderItem}
+        style={{marginTop: SIZES.padding * 2}}
+      />
+    );
+  }
+
   function renderPromos() {
     const HeaderComponent = () => (
       <View>
         {renderHeader()}
         {renderBanner()}
+        {renderFeatures()}
       </View>
     );
 
