@@ -116,6 +116,7 @@ const Home = () => {
               justifyContent: 'center',
               alignItems: 'center',
               backgroundColor: COLORS.lightGray,
+              borderRadius: 20,
             }}>
             <Image
               source={icons.bell}
