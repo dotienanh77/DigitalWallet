@@ -127,6 +127,16 @@ const Home = () => {
             }}
           />
         </View>
+        <View
+          style={{
+            padding: SIZES.padding,
+            borderBottomLeftRadius: 20,
+            borderBottomRightRadius: 20,
+            backgroundColor: COLORS.lightGray,
+          }}>
+          <Text style={{...FONTS.h5}}>{item.title}</Text>
+          <Text style={{...FONTS.body4}}>{item.description}</Text>
+        </View>
       </TouchableOpacity>
     );
 
