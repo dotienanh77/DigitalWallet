@@ -181,6 +181,9 @@ const Home = () => {
             style={{width: 30, height: 30, tintColor: item.color}}
           />
         </View>
+        <Text style={{textAlign: 'center', flexWrap: 'wrap', ...FONTS.body5}}>
+          {item.description}
+        </Text>
       </TouchableOpacity>
     );
     return (
