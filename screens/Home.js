@@ -101,7 +101,47 @@ const Home = () => {
   const [features, setFeatures] = useState(featuresData);
   const [specialPromos, setSpecialPromos] = useState(specialPromoData);
 
+  function renderHeader() {
+    return (
+      <View style={{flexDirection: 'row', marginVertical: SIZES.padding * 2}}>
+        <View style={{flex: 1}}>
+          <Text style={{...FONTS.h1}}>Hello!</Text>
+          <Text style={{...FONTS.body2, color: COLORS.gray}}>Do Tien Anh</Text>
+        </View>
+        <View style={{alignItems: 'center', justifyContent: 'center'}}>
+          <TouchableOpacity
+            style={{
+              height: 40,
+              width: 40,
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: COLORS.lightGray,
+            }}>
+            <Image
+              source={icons.bell}
+              resizeMode="contain"
+              style={{width: 20, height: 20, tintColor: COLORS.secondary}}
+            />
+            <View
+              style={{
+                position: 'absolute',
+                top: -5,
+                right: -5,
+                height: 10,
+                width: 10,
+                backgroundColor: COLORS.red,
+                borderRadius: 5,
+              }}
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
+
   function renderPromos() {
+    const HeaderComponent = () => <View>{renderHeader()}</View>;
+
     const renderItem = ({item}) => (
       <TouchableOpacity
         style={{
@@ -142,6 +182,7 @@ const Home = () => {
 
     return (
       <FlatList
+        ListHeaderComponent={HeaderComponent}
         contentContainerStyle={{paddingHorizontal: SIZES.padding * 3}}
         numColumns={2}
         columnWrapperStyle={{justifyContent: 'space-between'}}
@@ -152,6 +193,7 @@ const Home = () => {
       />
     );
   }
+
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
       {renderPromos()}
