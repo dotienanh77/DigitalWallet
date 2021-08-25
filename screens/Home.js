@@ -205,6 +205,20 @@ const Home = () => {
         {renderHeader()}
         {renderBanner()}
         {renderFeatures()}
+        {renderPromoHeader()}
+      </View>
+    );
+
+    const renderPromoHeader = () => (
+      <View style={{flexDirection: 'row', marginBottom: SIZES.padding}}>
+        <View style={{flex: 1}}>
+          <Text style={{...FONTS.h3}}>Special Promos</Text>
+        </View>
+        <TouchableOpacity onPress={() => console.log('View All')}>
+          <Text style={{color: COLORS.gray, ...FONTS.body4, paddingRight: 10}}>
+            View All
+          </Text>
+        </TouchableOpacity>
       </View>
     );
 
